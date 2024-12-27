@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Love Match
 
-## Getting Started
+一个基于 AI 的情侣匹配度测试网站。
 
-First, run the development server:
+## 设计特点
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 视觉设计
+- 简约优雅的界面设计
+- 柔和的粉色调主题
+- 大型居中爱心背景装饰
+- 半透明毛玻璃效果的顶部导航栏
+
+### 颜色方案
+- 背景色: `#FFF5F7` (浅粉色背景)
+- 主题色: `#FFB6C6` (爱心装饰)
+- 透明度: 背景装饰 40% 透明度
+- 毛玻璃效果: 90% 透明度
+
+### 布局
+- 固定位置的透明导航栏
+- 居中的大型爱心背景装饰
+- 响应式设计，适配多种屏幕尺寸
+
+### 交互设计
+- 平滑的页面过渡效果
+- 简洁的导航体验
+- 清晰的视觉层次
+
+## 技术实现
+
+### 前端技术
+- Next.js 15.1.3
+- React 19
+- Tailwind CSS
+- Framer Motion
+
+### 主要组件
+- `Header`: 透明导航栏组件
+- `BigHeart`: SVG 爱心背景装饰
+- `MobileMenu`: 移动端菜单组件
+
+### 样式实现
+```css
+/* 背景爱心装饰 */
+body::before {
+  content: '';
+  @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] pointer-events-none z-50;
+  background: url('/images/big-heart.svg') no-repeat center center;
+  background-size: contain;
+}
+
+/* 导航栏样式 */
+.header {
+  @apply fixed top-0 left-0 right-0 bg-background/90 backdrop-blur-sm;
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 最近更新
+- 移除了 Logo 和文字标题
+- 添加了大型居中爱心背景
+- 优化了导航栏透明效果
+- 调整了视觉层次关系
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 开发指南
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 安装依赖
+```bash
+npm install
+```
 
-## Learn More
+### 开发服务器
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 构建项目
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 启动生产服务器
+```bash
+npm run start
+```
